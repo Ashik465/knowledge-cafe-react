@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Book from '../Book/Book';
 
 import Card from '../Card/Card';
 
@@ -16,18 +17,22 @@ useEffect(()=>{
 
     return (
         <div className='container mx-auto p-2'>
-            <div className='grid grid-cols-1 md:grid-cols-4'>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-6'>
+
+                {/* card section  */}
               <div className='col-span-3 '>
-                <h1 className='font-bold text-3xl'>card</h1>
+                
 
                 {blogs.map(blog=> <Card blog={blog} key={blog.id} ></Card>)}
 
               </div>
                    
-
+{/* Bookmark section  */}
               <div>
 
               <h1 className='font-bold text-3xl'>Bookmark</h1>
+
+               <Book></Book>
 
               </div>
 
