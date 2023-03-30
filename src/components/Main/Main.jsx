@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
+import Card from '../Card/Card';
+
 const Main = () => {
-    const [blog,setBlog] = useState([])
+    const [blogs,setBlog] = useState([])
 
 useEffect(()=>{
     fetch("blogs.json")
     .then(res => res.json())
-    .then(data=>console.log(data))
+    .then(data=>setBlog(data))
 },[])
 
 
@@ -17,6 +19,8 @@ useEffect(()=>{
             <div className='grid grid-cols-1 md:grid-cols-4'>
               <div className='col-span-3 '>
                 <h1 className='font-bold text-3xl'>card</h1>
+
+                {blogs.map(blog=> <Card blog={blog} key={blog.id} ></Card>)}
 
               </div>
                    
