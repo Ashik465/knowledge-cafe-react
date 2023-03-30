@@ -5,7 +5,7 @@ const Header = () => {
         <div className='container mx-auto'>
             <div className="navbar bg-base-100">
   <div className="flex-1">
-    <a className="btn btn-ghost normal-case font-bold text-4xl text-[#111111]">Developer Hub</a>
+    <a className=" normal-case font-bold text-4xl text-[#111111]">Developer Hub</a>
   </div>
   <div className="flex-none">
     
@@ -28,7 +28,8 @@ const Header = () => {
     </div>
   </div>
 </div>
-<hr />
+<div className='p-2'><hr /></div>
+
         </div>
     );
 };
