@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Card = (props) => {
     const {blogTitle,authorName,readTime,publishDate,authorImage,blogCoverImg} =props.blog
+    const spentTime =props.spentTime
     return (
         <div>
             <div className="card card-compact w-full h-[100%] bg-base-100 shadow-xl  ">
@@ -28,7 +29,7 @@ const Card = (props) => {
 
      <p className='text-xl pb-4'>#beginners  #programming</p>
 
-     <p className='text-[#6047EC] text-xl underline pb-4 cursor-pointer'>Mark as read</p>
+     <p onClick={()=>spentTime(readTime)} className='text-[#6047EC] text-xl underline pb-4 cursor-pointer'>Mark as read</p>
     
     <div className='mb-5'><hr /></div>
 
