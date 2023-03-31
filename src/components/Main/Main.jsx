@@ -4,6 +4,8 @@ import Book from '../Book/Book';
 import Card from '../Card/Card';
 import Swal from 'sweetalert2'
 import Mark from '../Mark/Mark';
+import Question from '../Question/Question';
+
 
 const Main = () => {
     const [blogs,setBlog] = useState([])
@@ -60,6 +62,8 @@ const addedToBookmark =(card)=>{
 
                 {blogs.map(blog=> <Card blog={blog} key={blog.id} spentTime={spentTime} addedToBookmark ={addedToBookmark} ></Card>)}
 
+               <Question></Question>
+
               </div>
                    
 {/* Bookmark section  */}
@@ -69,7 +73,7 @@ const addedToBookmark =(card)=>{
 
                <Book timeSpent={timeSpent}></Book>
 
-               <div className='bg-[#1111110D] p-8 rounded-lg '>
+               <div className='bg-[#1111110D] p-8 rounded-lg mb-5'>
                 <h1 className=' font-bold text-xl' >Bookmarked Blogs :{cards.length} </h1> 
                   
                   {cards.map(card=><Mark card={card} ></Mark>)}
