@@ -5,14 +5,27 @@ import Card from '../Card/Card';
 
 const Main = () => {
     const [blogs,setBlog] = useState([])
+    const [timeSpent, setTimeSpent] = useState(0)
 
 useEffect(()=>{
     fetch("blogs.json")
     .then(res => res.json())
     .then(data=>setBlog(data))
 },[])
-
-
+ 
+const spentTime = (spentTime)=>{
+   
+  const previousTime = JSON.parse(localStorage.getItem("watchTime")) 
+  if(previousTime){
+    const sum = previousTime + spentTime 
+    localStorage.setItem('watchTime',sum )
+    setTimeSpent(sum)
+  } 
+  else{
+    localStorage.setItem('watchTime',spentTime )
+    setTimeSpent(spentTime)
+  }
+}
 
 
     return (
@@ -23,7 +36,7 @@ useEffect(()=>{
               <div className='col-span-3 '>
                 
 
-                {blogs.map(blog=> <Card blog={blog} key={blog.id} ></Card>)}
+                {blogs.map(blog=> <Card blog={blog} key={blog.id} spentTime={spentTime} ></Card>)}
 
               </div>
                    
@@ -32,7 +45,7 @@ useEffect(()=>{
 
               <h1 className='font-bold text-3xl'>Bookmark</h1>
 
-               <Book></Book>
+               <Book timeSpent={timeSpent}></Book>
 
               </div>
 
