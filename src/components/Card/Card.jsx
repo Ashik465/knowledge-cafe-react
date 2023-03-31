@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Card = (props) => {
     const {blogTitle,authorName,readTime,publishDate,authorImage,blogCoverImg} =props.blog
     const spentTime =props.spentTime
+    const addedToBookmark = props.addedToBookmark
     return (
         <div>
             <div className="card card-compact w-full h-[100%] bg-base-100 shadow-xl  ">
@@ -22,7 +23,7 @@ const Card = (props) => {
         </div>
         <div>
          
-        <p className='text-[#11111199] text-xl '>{readTime} min read <FontAwesomeIcon className='cursor-pointer' icon={faBookmark} /> </p>
+        <p className='text-[#11111199] text-xl '>{readTime} min read <FontAwesomeIcon onClick={()=> addedToBookmark(props.blog)} className='cursor-pointer' icon={faBookmark} /> </p>
         </div>
     </div>
     <h1 className='py-5 font-bold text-4xl'>{blogTitle}</h1>
